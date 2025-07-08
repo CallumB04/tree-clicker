@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=4 format=3 uid="uid://blsq4lu1so4ur"]
 
+[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/Game.gd" id="1_gl6un"]
 [ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="1_iukft"]
+
+[sub_resource type="GDScript" id="GDScript_j5yw3"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -9,13 +12,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gl6un")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TreeClicker" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 180.0
-offset_top = 400.0
-offset_right = 196.0
-offset_bottom = 413.0
+offset_left = 199.0
+offset_top = 401.0
+offset_right = 215.0
+offset_bottom = 414.0
 scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("1_iukft")
+script = SubResource("GDScript_j5yw3")
