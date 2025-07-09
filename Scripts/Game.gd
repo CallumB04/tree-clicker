@@ -17,5 +17,16 @@ func _on_tree_clicked():
 		current_tree_progress -= 100;
 		trees += 1;
 		$ScoreContainer/TreeCount.text = "Trees: %s" % [trees]; ## updating trees score text
+		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak1.png");
+		$TreeClicker.set_position(Vector2(209, 420));
+	elif current_tree_progress >= 75:
+		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak4.png");
+		$TreeClicker.set_position(Vector2(135, 222));
+	elif current_tree_progress >= 50:
+		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak3.png");
+		$TreeClicker.set_position(Vector2(185, 348));
+	elif current_tree_progress >= 25:
+		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak2.png");
+		$TreeClicker.set_position(Vector2(206, 393));
 		
 	$ScoreContainer/ProgressContainer/TreeProgress.value = current_tree_progress; ## updating tree progress bar
