@@ -17,10 +17,39 @@ script = ExtResource("1_gl6un")
 [node name="TreeClicker" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 199.0
-offset_top = 401.0
-offset_right = 215.0
-offset_bottom = 414.0
+offset_left = 205.0
+offset_top = 433.0
+offset_right = 221.0
+offset_bottom = 446.0
 scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("1_iukft")
 script = SubResource("GDScript_j5yw3")
+
+[node name="ScoreContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 59.0
+offset_right = 371.0
+offset_bottom = 113.0
+theme_override_constants/separation = 36
+
+[node name="TreeCount" type="RichTextLabel" parent="ScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Trees: 0"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ProgressContainer" type="VBoxContainer" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="ProgressBarLabel" type="RichTextLabel" parent="ScoreContainer/ProgressContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+text = "Tree Progression"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="TreeProgress" type="ProgressBar" parent="ScoreContainer/ProgressContainer"]
+layout_mode = 2
+step = 1.0
