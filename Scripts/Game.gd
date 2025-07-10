@@ -2,7 +2,7 @@ extends Control
 
 var trees: int = 0; ## game score
 var current_tree_progress: int = 0; ## value 0-100, when 100 plants tree
-var tree_click_strength: int = 5; ## tree progress per click
+var tree_click_strength: int = 1; ## tree progress per click
 var tree_progress_per_second: int = 0; ## automatic tree progress per second
 
 func _ready() -> void:
