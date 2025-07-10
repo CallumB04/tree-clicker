@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=9 format=3 uid="uid://blsq4lu1so4ur"]
 
-[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/Game.gd" id="1_gl6un"]
-[ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="1_iukft"]
+[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/game.gd" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_wowpa"]
+[ext_resource type="Texture2D" uid="uid://bnlxp5f1nynd3" path="res://Assets/ParalaxBackground/forest_sky.png" id="3_i6g32"]
+[ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="4_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://cec7ljsesv68x" path="res://Assets/ParalaxBackground/forest_mountain.png" id="4_wowpa"]
+[ext_resource type="Texture2D" uid="uid://bqbwom0oa04df" path="res://Assets/ParalaxBackground/forest_back.png" id="5_i6g32"]
+[ext_resource type="Texture2D" uid="uid://obopyt80phyl" path="res://Assets/ParalaxBackground/forest_mid.png" id="6_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_v158k"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -10,7 +16,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gl6un")
+script = ExtResource("1_3dryh")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_wowpa")
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -200)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1520, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_i6g32")
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 200)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(2640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains"]
+texture_filter = 1
+position = Vector2(0, -724)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_wowpa")
+centered = false
+
+[node name="ForestBack" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, 280)
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(2660, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ForestBack"]
+texture_filter = 1
+position = Vector2(0, -945)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_i6g32")
+centered = false
+
+[node name="ForestMid" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 300)
+motion_scale = Vector2(0.35, 0.35)
+motion_mirroring = Vector2(2660, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ForestMid"]
+texture_filter = 1
+position = Vector2(0, -1046)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1l0tm")
+centered = false
+
+[node name="ForestFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.45, 0.45)
+motion_mirroring = Vector2(2660, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ForestFront"]
+texture_filter = 1
+position = Vector2(0, -186)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_v158k")
+centered = false
 
 [node name="TreeClicker" type="TextureButton" parent="."]
 texture_filter = 1
@@ -28,7 +96,7 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(8, 13)
-texture_normal = ExtResource("1_iukft")
+texture_normal = ExtResource("4_1l0tm")
 
 [node name="ScoreContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
