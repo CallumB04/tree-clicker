@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=12 format=3 uid="uid://blsq4lu1so4ur"]
 
-[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/game.gd" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/Game.gd" id="1_3dryh"]
 [ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_wowpa"]
 [ext_resource type="Texture2D" uid="uid://bnlxp5f1nynd3" path="res://Assets/ParalaxBackground/forest_sky.png" id="3_i6g32"]
 [ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="4_1l0tm"]
@@ -8,6 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://bqbwom0oa04df" path="res://Assets/ParalaxBackground/forest_back.png" id="5_i6g32"]
 [ext_resource type="Texture2D" uid="uid://obopyt80phyl" path="res://Assets/ParalaxBackground/forest_mid.png" id="6_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_v158k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irst"]
+bg_color = Color(1, 1, 1, 0.462745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 40.0
+expand_margin_right = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf53h"]
+bg_color = Color(0.117647, 0.270588, 0.152941, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71axn"]
+bg_color = Color(0.345098, 0.686275, 0.423529, 0.784314)
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -98,36 +113,51 @@ scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(8, 13)
 texture_normal = ExtResource("4_1l0tm")
 
-[node name="ScoreContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.154321
-offset_left = 200.0
-offset_top = 50.0
-offset_right = -200.0
+offset_left = 150.0
+offset_top = 20.0
+offset_right = -150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2irst")
+
+[node name="ScoreContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
 offset_bottom = 50.0
 grow_horizontal = 2
-theme_override_constants/separation = 24
-metadata/_edit_use_anchors_ = true
+grow_vertical = 2
+theme_override_constants/separation = 16
 
-[node name="TreeCount" type="RichTextLabel" parent="ScoreContainer"]
+[node name="TreeCount" type="RichTextLabel" parent="Panel/ScoreContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
+theme_override_font_sizes/normal_font_size = 24
 text = "Trees: 0"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="ProgressContainer" type="VBoxContainer" parent="ScoreContainer"]
+[node name="ProgressContainer" type="VBoxContainer" parent="Panel/ScoreContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
-[node name="ProgressBarLabel" type="RichTextLabel" parent="ScoreContainer/ProgressContainer"]
+[node name="ProgressBarLabel" type="RichTextLabel" parent="Panel/ScoreContainer/ProgressContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 12
+theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
+theme_override_font_sizes/normal_font_size = 16
 text = "Tree Progression"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="TreeProgress" type="ProgressBar" parent="ScoreContainer/ProgressContainer"]
+[node name="TreeProgress" type="ProgressBar" parent="Panel/ScoreContainer/ProgressContainer"]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bf53h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_71axn")
 step = 1.0

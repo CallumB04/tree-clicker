@@ -32,4 +32,4 @@ func _on_tree_clicked():
 		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak2.png");
 		$TreeClicker.pivot_offset = Vector2(8, 19);
 		
-	$ScoreContainer/ProgressContainer/TreeProgress.value = current_tree_progress; ## updating tree progress bar
+	$Panel/ScoreContainer/ProgressContainer/TreeProgress.value = current_tree_progress; ## updating tree progress bar
