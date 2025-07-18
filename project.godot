@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [gui]
 
 theme/custom_font="uid://cyutfaobtgonu"
+theme/default_font_multichannel_signed_distance_field=true
 
 [rendering]
 

@@ -9,14 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://obopyt80phyl" path="res://Assets/ParalaxBackground/forest_mid.png" id="6_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_v158k"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irst"]
-bg_color = Color(1, 1, 1, 0.462745)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 40.0
-expand_margin_right = 40.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dahhg"]
+bg_color = Color(1, 1, 1, 0.470588)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf53h"]
 bg_color = Color(0.117647, 0.270588, 0.152941, 0.784314)
@@ -100,64 +98,90 @@ texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.884
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.884
+anchor_bottom = 1.0
 offset_left = -8.0
-offset_top = -12.832
+offset_top = -13.0
 offset_right = 8.0
-offset_bottom = 0.167969
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(8, 13)
 texture_normal = ExtResource("4_1l0tm")
 
-[node name="ScorePanel" type="Panel" parent="."]
+[node name="InfoPanel" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -426.0
-offset_top = 20.0
-offset_right = 426.0
-offset_bottom = 150.0
+offset_top = 40.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2irst")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dahhg")
+metadata/_edit_use_anchors_ = true
 
-[node name="ScoreContainer" type="VBoxContainer" parent="ScorePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -426.0
-offset_top = 15.0
-offset_right = 426.0
-offset_bottom = 115.0
-grow_horizontal = 2
+[node name="MarginContainer" type="MarginContainer" parent="InfoPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="TreeCount" type="RichTextLabel" parent="ScorePanel/ScoreContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
-theme_override_font_sizes/normal_font_size = 24
-text = "Trees: 0"
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
 
-[node name="ProgressContainer" type="VBoxContainer" parent="ScorePanel/ScoreContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TreeCount" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="Label" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+theme_override_font_sizes/font_size = 24
+text = "Trees"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="GPS" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+text = "0"
+
+[node name="Label" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+text = "Growth Per Second (GPS)"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="InfoPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="ProgressBarLabel" type="RichTextLabel" parent="ScorePanel/ScoreContainer/ProgressContainer"]
+[node name="Label" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
-theme_override_font_sizes/normal_font_size = 16
-text = "Tree Progression"
-fit_content = true
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+text = "Tree Growth"
 horizontal_alignment = 1
 
-[node name="TreeProgress" type="ProgressBar" parent="ScorePanel/ScoreContainer/ProgressContainer"]
+[node name="TreeGrowthProgress" type="ProgressBar" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bf53h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_71axn")

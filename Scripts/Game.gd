@@ -16,7 +16,7 @@ func _on_tree_clicked():
 	if current_tree_progress >= 100:
 		current_tree_progress -= 100;
 		trees += 1;
-		$ScorePanel/ScoreContainer/TreeCount.text = "Trees: %s" % [trees]; ## updating trees score text
+		$InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TreeCount.text = str(trees); ## updating trees score text
 		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak1.png");
 		$TreeClicker.pivot_offset = Vector2(8, 13);
 	elif current_tree_progress >= 80:
@@ -32,4 +32,4 @@ func _on_tree_clicked():
 		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak2.png");
 		$TreeClicker.pivot_offset = Vector2(8, 19);
 		
-	$ScorePanel/ScoreContainer/ProgressContainer/TreeProgress.value = current_tree_progress; ## updating tree progress bar
+	$InfoPanel/MarginContainer/VBoxContainer/VBoxContainer2/TreeGrowthProgress.value = current_tree_progress; ## updating tree progress bar
