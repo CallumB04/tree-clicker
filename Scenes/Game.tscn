@@ -113,7 +113,7 @@ scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(8, 13)
 texture_normal = ExtResource("4_1l0tm")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="ScorePanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -125,7 +125,7 @@ offset_bottom = 150.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2irst")
 
-[node name="ScoreContainer" type="VBoxContainer" parent="Panel"]
+[node name="ScoreContainer" type="VBoxContainer" parent="ScorePanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -137,7 +137,7 @@ offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_constants/separation = 16
 
-[node name="TreeCount" type="RichTextLabel" parent="Panel/ScoreContainer"]
+[node name="TreeCount" type="RichTextLabel" parent="ScorePanel/ScoreContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
 theme_override_font_sizes/normal_font_size = 24
@@ -145,11 +145,11 @@ text = "Trees: 0"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="ProgressContainer" type="VBoxContainer" parent="Panel/ScoreContainer"]
+[node name="ProgressContainer" type="VBoxContainer" parent="ScorePanel/ScoreContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="ProgressBarLabel" type="RichTextLabel" parent="Panel/ScoreContainer/ProgressContainer"]
+[node name="ProgressBarLabel" type="RichTextLabel" parent="ScorePanel/ScoreContainer/ProgressContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
 theme_override_font_sizes/normal_font_size = 16
@@ -157,7 +157,7 @@ text = "Tree Progression"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="TreeProgress" type="ProgressBar" parent="Panel/ScoreContainer/ProgressContainer"]
+[node name="TreeProgress" type="ProgressBar" parent="ScorePanel/ScoreContainer/ProgressContainer"]
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bf53h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_71axn")
