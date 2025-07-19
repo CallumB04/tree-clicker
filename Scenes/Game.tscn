@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_v158k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dahhg"]
-bg_color = Color(1, 1, 1, 0.470588)
+bg_color = Color(1, 1, 1, 0.72549)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -114,12 +114,9 @@ texture_normal = ExtResource("4_1l0tm")
 [node name="InfoPanel" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_top = 40.0
-grow_horizontal = 2
+offset_left = 20.0
+offset_top = 20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dahhg")
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="InfoPanel"]
 layout_mode = 2
@@ -181,7 +178,7 @@ text = "Tree Growth"
 horizontal_alignment = 1
 
 [node name="TreeGrowthProgress" type="ProgressBar" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bf53h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_71axn")
