@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=13 format=3 uid="uid://blsq4lu1so4ur"]
 
-[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/Game.gd" id="1_3dryh"]
-[ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_wowpa"]
-[ext_resource type="Texture2D" uid="uid://bnlxp5f1nynd3" path="res://Assets/ParalaxBackground/forest_sky.png" id="3_i6g32"]
-[ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="4_1l0tm"]
-[ext_resource type="Texture2D" uid="uid://cec7ljsesv68x" path="res://Assets/ParalaxBackground/forest_mountain.png" id="4_wowpa"]
-[ext_resource type="Texture2D" uid="uid://bqbwom0oa04df" path="res://Assets/ParalaxBackground/forest_back.png" id="5_i6g32"]
-[ext_resource type="Texture2D" uid="uid://obopyt80phyl" path="res://Assets/ParalaxBackground/forest_mid.png" id="6_1l0tm"]
-[ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_v158k"]
+[ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/game.gd" id="1_v158k"]
+[ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://bnlxp5f1nynd3" path="res://Assets/ParalaxBackground/forest_sky.png" id="3_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://cec7ljsesv68x" path="res://Assets/ParalaxBackground/forest_mountain.png" id="4_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://bqbwom0oa04df" path="res://Assets/ParalaxBackground/forest_back.png" id="5_rku1e"]
+[ext_resource type="Texture2D" uid="uid://obopyt80phyl" path="res://Assets/ParalaxBackground/forest_mid.png" id="6_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_1phco"]
+[ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="8_nb51f"]
+[ext_resource type="PackedScene" uid="uid://cdy2d27p82jvb" path="res://Scenes/upgrade.tscn" id="9_h4fw4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dahhg"]
 bg_color = Color(1, 1, 1, 0.72549)
@@ -29,20 +30,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3dryh")
+script = ExtResource("1_v158k")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("2_wowpa")
+script = ExtResource("2_h4fw4")
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -200)
 motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(1520, 0)
+motion_mirroring = Vector2(1710, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 texture_filter = 1
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_i6g32")
+position = Vector2(0, -150)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_ldgsr")
 centered = false
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -52,9 +53,9 @@ motion_mirroring = Vector2(2640, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains"]
 texture_filter = 1
-position = Vector2(0, -724)
+position = Vector2(0, -640)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_wowpa")
+texture = ExtResource("4_o5yvi")
 centered = false
 
 [node name="ForestBack" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -65,9 +66,9 @@ motion_mirroring = Vector2(2660, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ForestBack"]
 texture_filter = 1
-position = Vector2(0, -945)
+position = Vector2(0, -800)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("5_i6g32")
+texture = ExtResource("5_rku1e")
 centered = false
 
 [node name="ForestMid" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -77,9 +78,9 @@ motion_mirroring = Vector2(2660, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ForestMid"]
 texture_filter = 1
-position = Vector2(0, -1046)
+position = Vector2(0, -850)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_1l0tm")
+texture = ExtResource("6_rfjv2")
 centered = false
 
 [node name="ForestFront" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -88,9 +89,9 @@ motion_mirroring = Vector2(2660, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ForestFront"]
 texture_filter = 1
-position = Vector2(0, -186)
+position = Vector2(0, 65)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("7_v158k")
+texture = ExtResource("7_1phco")
 centered = false
 
 [node name="TreeClicker" type="TextureButton" parent="."]
@@ -109,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(8, 13)
-texture_normal = ExtResource("4_1l0tm")
+texture_normal = ExtResource("8_nb51f")
 
 [node name="InfoPanel" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -168,7 +169,7 @@ text = "Growth Per Second (GPS)"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="InfoPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 6
 
 [node name="Label" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -178,8 +179,19 @@ text = "Tree Growth"
 horizontal_alignment = 1
 
 [node name="TreeGrowthProgress" type="ProgressBar" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bf53h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_71axn")
 step = 0.1
+
+[node name="Upgrade" parent="." instance=ExtResource("9_h4fw4")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -339.0
+offset_top = 17.0
+offset_right = -39.0
+offset_bottom = 117.0
+grow_horizontal = 0

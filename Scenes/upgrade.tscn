@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdy2d27p82jvb"]
+
+[ext_resource type="Texture2D" uid="uid://chayk8scllsiu" path="res://Assets/Trees/Oak4.png" id="1_47it6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5ow3"]
+bg_color = Color(1, 1, 1, 0.72549)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Upgrade" type="PanelContainer"]
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f5ow3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="UpgradeName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+text = "Upgrade Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="UpgradeCost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
+text = "3"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 21)
+layout_mode = 2
+texture = ExtResource("1_47it6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="UpgradeDesc" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 10
+text = "Upgrade Description"
