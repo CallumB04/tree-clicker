@@ -199,9 +199,18 @@ theme_override_constants/separation = 8
 
 [node name="Upgrade" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
 layout_mode = 2
+upgrade_name = "First Upgrade"
+upgrade_description = "This is the first upgrade"
+upgrade_cost = 1
 
 [node name="Upgrade2" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
 layout_mode = 2
+upgrade_name = "Next Upgrade"
+upgrade_description = "This is the next upgrade"
+upgrade_cost = 2
 
 [node name="Upgrade3" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
 layout_mode = 2
+upgrade_name = "Expensive Thing"
+upgrade_description = "Wow this costs alot"
+upgrade_cost = 10
