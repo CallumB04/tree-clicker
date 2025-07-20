@@ -10,7 +10,8 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [node name="Upgrade" type="PanelContainer"]
-offset_right = 420.0
+custom_minimum_size = Vector2(350, 0)
+offset_right = 219.0
 offset_bottom = 73.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f5ow3")
 
@@ -61,5 +62,5 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 text = "Upgrade Description"

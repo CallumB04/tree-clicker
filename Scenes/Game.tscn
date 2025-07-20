@@ -185,13 +185,23 @@ theme_override_styles/background = SubResource("StyleBoxFlat_bf53h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_71axn")
 step = 0.1
 
-[node name="Upgrade" parent="." instance=ExtResource("9_h4fw4")]
+[node name="UpgradesVBox" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -339.0
-offset_top = 17.0
-offset_right = -39.0
-offset_bottom = 117.0
+offset_left = -40.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 40.0
 grow_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="Upgrade" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
+layout_mode = 2
+
+[node name="Upgrade2" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
+layout_mode = 2
+
+[node name="Upgrade3" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
+layout_mode = 2
