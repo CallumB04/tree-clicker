@@ -113,6 +113,7 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(8, 13)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("8_nb51f")
 
 [node name="InfoPanel" type="PanelContainer" parent="."]
