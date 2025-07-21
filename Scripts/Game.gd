@@ -7,7 +7,9 @@ var growth_per_second: float = 0; ## automatic tree progress per second
 
 func _ready() -> void:
 	$TreeClicker.connect("pressed", _on_tree_clicked);
+	$GPSTimer.connect("timeout", _on_gpstimer_timeout);
 	
+	## connect all existing upgrades to parent function
 	for upgrade in $UpgradesVBox.get_children():
 		upgrade.connect("upgrade_requested", _on_upgrade_requested)
 	
@@ -15,7 +17,17 @@ func _on_tree_clicked():
 	## adding progress to tree
 	current_tree_growth += growth_per_click;
 	
-	## increasing score and resetting tree once complete
+	update_tree_growth();
+	update_values_in_UI();
+	
+func _on_gpstimer_timeout():
+	if growth_per_second > 0:
+		current_tree_growth += growth_per_second;
+		update_tree_growth();
+		update_values_in_UI();
+		
+## checking if tree growth at checkpoint/complete
+func update_tree_growth():
 	if current_tree_growth >= 100:
 		current_tree_growth -= 100;
 		trees += 1;
@@ -34,10 +46,8 @@ func _on_tree_clicked():
 	elif current_tree_growth >= 20:
 		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak2.png");
 		$TreeClicker.pivot_offset = Vector2(8, 19);
-		
-	update_values_in_UI();
 	
-	## function to update trees, gps, etc on the UI
+## update trees, gps, etc on the UI
 func update_values_in_UI():
 	$InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TreeCount.text = str(trees); ## trees
 	$InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/GPS.text = str(growth_per_second); # gps

@@ -32,6 +32,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v158k")
 
+[node name="GPSTimer" type="Timer" parent="."]
+autostart = true
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("2_h4fw4")
 
