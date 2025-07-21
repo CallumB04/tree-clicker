@@ -160,7 +160,7 @@ size_flags_vertical = 0
 [node name="GPS" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 1)
-text = "0"
+text = "0.0"
 
 [node name="Label" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -199,15 +199,18 @@ theme_override_constants/separation = 8
 
 [node name="Upgrade" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
 layout_mode = 2
-upgrade_name = "First Upgrade"
-upgrade_description = "This is the first upgrade"
+upgrade_name = "Better Gardening Gloves"
+upgrade_description = "+1 Growth Per Click"
 upgrade_cost = 1
+upgrade_value = 1.0
 
 [node name="Upgrade2" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
 layout_mode = 2
-upgrade_name = "Next Upgrade"
-upgrade_description = "This is the next upgrade"
+upgrade_name = "First Auto-Farmer"
+upgrade_description = "+1 Growth Per Second"
 upgrade_cost = 2
+type = 1
+upgrade_value = 1.0
 
 [node name="Upgrade3" parent="UpgradesVBox" instance=ExtResource("9_h4fw4")]
 layout_mode = 2

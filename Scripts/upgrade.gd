@@ -1,7 +1,8 @@
 extends PanelContainer
 
-signal upgraded_click(amount: float);
-signal upgraded_gps(amount: float);
+class_name Upgrade
+
+signal upgrade_requested(upgrade: Upgrade);
 
 enum upgrade_type {
 	CLICK_UPGRADE,
@@ -16,7 +17,13 @@ enum upgrade_type {
 @export var upgrade_value: float; ## value the upgrade adds (to growth per click/second, etc)
 
 func _ready() -> void:
+	## connecting buy button to upgrade script
+	$MarginContainer/VBoxContainer2/BuyButton.connect("pressed", _on_buy_pressed);
+	
 	## adding unique values to UI
 	$MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/UpgradeName.text = upgrade_name;
 	$MarginContainer/VBoxContainer2/VBoxContainer/UpgradeDesc.text = upgrade_description;
 	$MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer/UpgradeCost.text = str(upgrade_cost);
+
+func _on_buy_pressed():
+	upgrade_requested.emit(self);
