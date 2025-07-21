@@ -53,5 +53,7 @@ func _on_upgrade_requested(upgrade: Upgrade):
 			growth_per_click += upgrade.upgrade_value;
 		elif upgrade.type == upgrade.upgrade_type.GPS_UPGRADE:
 			growth_per_second += upgrade.upgrade_value;
+		
+		upgrade.queue_free(); ## delete upgrade node from scene
 			
 	update_values_in_UI();
