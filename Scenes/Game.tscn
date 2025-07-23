@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=15 format=3 uid="uid://blsq4lu1so4ur"]
 
 [ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/game.gd" id="1_v158k"]
 [ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_h4fw4"]
@@ -16,6 +16,17 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldgsr"]
+bg_color = Color(1, 1, 1, 0.470588)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 6.0
+expand_margin_top = 4.0
+expand_margin_right = 6.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dahhg"]
 bg_color = Color(1, 1, 1, 0.72549)
@@ -112,12 +123,26 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -125.0
-offset_top = -440.0
+offset_top = -472.0
 offset_right = 125.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_h4fw4")
+
+[node name="Label" type="Label" parent="TreeClickerBackPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.054902, 0.054902, 0.054902, 0.784314)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ldgsr")
+text = "Click Tree to Grow!"
 
 [node name="TreeClicker" type="TextureButton" parent="."]
 texture_filter = 1
