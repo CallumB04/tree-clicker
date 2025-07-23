@@ -24,6 +24,10 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/UpgradeName.text = upgrade_name;
 	$MarginContainer/VBoxContainer2/VBoxContainer/UpgradeDesc.text = upgrade_description;
 	$MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer/UpgradeCost.text = str(upgrade_cost);
+	
+	## changed description font color if click upgrade
+	if type == upgrade_type.CLICK_UPGRADE:
+		$MarginContainer/VBoxContainer2/VBoxContainer/UpgradeDesc.add_theme_color_override("font_color", "#ce3333")
 
 func _on_buy_pressed():
 	upgrade_requested.emit(self);
