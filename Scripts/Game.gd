@@ -12,13 +12,26 @@ func _ready() -> void:
 	## connect all existing upgrades to parent function
 	for upgrade in $UpgradesVBox.get_children():
 		upgrade.connect("upgrade_requested", _on_upgrade_requested);
+		
+func get_tree_rotation_bounds():
+	if current_tree_growth < 20:
+		return Vector2i(5, 15);
+	elif current_tree_growth < 40:
+		return Vector2i(4, 10);
+	elif current_tree_growth < 60:
+		return Vector2i(3, 6);
+	elif current_tree_growth < 80:
+		return Vector2i(2, 3);
+	elif current_tree_growth < 100:
+		return Vector2i(1, 1);
 	
 func _on_tree_clicked():
 	## playing tree shake animation when sprite is clicked
 	var tween = create_tween();
 	## calculating angles to rotate tree during animation
-	var right_rotation = randi_range(5, 15);
-	var left_rotation = randi_range(-5, -15);
+	var rotation_bounds = get_tree_rotation_bounds();
+	var right_rotation = randi_range(rotation_bounds[0], rotation_bounds[1]);
+	var left_rotation = randi_range(rotation_bounds[0] * -1, rotation_bounds[1] * -1);
 	var initial_direction = randi_range(0, 1); ## rotates left first if 0, right if 1
 	
 	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 1 else left_rotation, randf_range(0.04, 0.06));
