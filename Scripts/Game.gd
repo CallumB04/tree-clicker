@@ -5,6 +5,8 @@ var current_tree_growth: float = 0; ## value 0-100. at 100 trees increments
 var growth_per_click: float = 1; ## tree progress per click
 var growth_per_second: float = 0; ## automatic tree progress per second
 
+const TreeClickLabel = preload("res://Scenes/tree_click_label.tscn");
+
 func _ready() -> void:
 	$TreeClicker.connect("pressed", _on_tree_clicked);
 	$GPSTimer.connect("timeout", _on_gpstimer_timeout);
@@ -13,7 +15,7 @@ func _ready() -> void:
 	for upgrade in $UpgradesVBox.get_children():
 		upgrade.connect("upgrade_requested", _on_upgrade_requested);
 		
-func get_tree_rotation_bounds():
+func get_tree_rotation_bounds() -> Vector2i:
 	if current_tree_growth < 20:
 		return Vector2i(5, 15);
 	elif current_tree_growth < 40:
@@ -22,21 +24,28 @@ func get_tree_rotation_bounds():
 		return Vector2i(3, 6);
 	elif current_tree_growth < 80:
 		return Vector2i(2, 3);
-	elif current_tree_growth < 100:
+	else:
 		return Vector2i(1, 1);
 	
 func _on_tree_clicked():
 	## playing tree shake animation when sprite is clicked
-	var tween = create_tween();
+	var tween := create_tween();
 	## calculating angles to rotate tree during animation
-	var rotation_bounds = get_tree_rotation_bounds();
-	var right_rotation = randi_range(rotation_bounds[0], rotation_bounds[1]);
-	var left_rotation = randi_range(rotation_bounds[0] * -1, rotation_bounds[1] * -1);
-	var initial_direction = randi_range(0, 1); ## rotates left first if 0, right if 1
-	
+	var rotation_bounds := get_tree_rotation_bounds();
+	var right_rotation := randi_range(rotation_bounds[0], rotation_bounds[1]);
+	var left_rotation := randi_range(rotation_bounds[0] * -1, rotation_bounds[1] * -1);
+	var initial_direction := randi_range(0, 1); ## rotates left first if 0, right if 1
+	## playing animation
 	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 1 else left_rotation, randf_range(0.04, 0.06));
 	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 0 else left_rotation, randf_range(0.12, 0.2));
 	tween.tween_property($TreeClicker, "rotation_degrees", 0, 0.2);
+	
+	## showing label indicator when tree is clicked of growth added (e.g: +1)
+	var growth_label := TreeClickLabel.instantiate();
+	var growth_label_x_pos := randi_range(size.x/2 - 72, size.x/2 + 60);
+	var growth_label_y_pos := randi_range(size.y - ($TreeClicker.size.y * 4.5) - 96, size.y - ($TreeClicker.size.y * 2.5) - 12);
+	growth_label.position = Vector2i(growth_label_x_pos, growth_label_y_pos);
+	add_child(growth_label);	
 	
 	## adding progress to tree
 	current_tree_growth += growth_per_click;
