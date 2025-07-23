@@ -42,6 +42,8 @@ func _on_tree_clicked():
 	
 	## showing label indicator when tree is clicked of growth added (e.g: +1)
 	var growth_label := TreeClickLabel.instantiate();
+	growth_label.text = "+%.1f" % [growth_per_click] + "%";
+	## randomising where to display label
 	var growth_label_x_pos := randi_range(size.x/2 - 72, size.x/2 + 60);
 	var growth_label_y_pos := randi_range(size.y - ($TreeClicker.size.y * 4.5) - 96, size.y - ($TreeClicker.size.y * 2.5) - 12);
 	growth_label.position = Vector2i(growth_label_x_pos, growth_label_y_pos);
