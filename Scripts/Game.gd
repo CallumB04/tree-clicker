@@ -29,23 +29,27 @@ func get_tree_rotation_bounds() -> Vector2i:
 	
 func _on_tree_clicked():
 	## playing tree shake animation when sprite is clicked
-	var tween := create_tween();
+	var rotation_tween := create_tween();
 	## calculating angles to rotate tree during animation
 	var rotation_bounds := get_tree_rotation_bounds();
 	var right_rotation := randi_range(rotation_bounds[0], rotation_bounds[1]);
 	var left_rotation := randi_range(rotation_bounds[0] * -1, rotation_bounds[1] * -1);
 	var initial_direction := randi_range(0, 1); ## rotates left first if 0, right if 1
 	## playing animation
-	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 1 else left_rotation, randf_range(0.04, 0.06));
-	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 0 else left_rotation, randf_range(0.12, 0.2));
-	tween.tween_property($TreeClicker, "rotation_degrees", 0, 0.2);
+	rotation_tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 1 else left_rotation, randf_range(0.04, 0.06));
+	rotation_tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 0 else left_rotation, randf_range(0.12, 0.2));
+	rotation_tween.tween_property($TreeClicker, "rotation_degrees", 0, 0.2);
 	
 	## showing label indicator when tree is clicked of growth added (e.g: +1)
 	var growth_label := TreeClickLabel.instantiate();
 	var growth_label_x_pos := randi_range(size.x/2 - 72, size.x/2 + 60);
 	var growth_label_y_pos := randi_range(size.y - ($TreeClicker.size.y * 4.5) - 96, size.y - ($TreeClicker.size.y * 2.5) - 12);
 	growth_label.position = Vector2i(growth_label_x_pos, growth_label_y_pos);
-	add_child(growth_label);	
+	add_child(growth_label);
+	## animating label to scale in, then fade out
+	var label_tween := create_tween();
+	label_tween.tween_property(growth_label, "scale", Vector2(1, 1), 0.2).from(Vector2(0.8, 0.8));
+	label_tween.tween_property(growth_label, "modulate:a", 0, 0.8);
 	
 	## adding progress to tree
 	current_tree_growth += growth_per_click;
