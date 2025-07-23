@@ -11,9 +11,20 @@ func _ready() -> void:
 	
 	## connect all existing upgrades to parent function
 	for upgrade in $UpgradesVBox.get_children():
-		upgrade.connect("upgrade_requested", _on_upgrade_requested)
+		upgrade.connect("upgrade_requested", _on_upgrade_requested);
 	
 func _on_tree_clicked():
+	## playing tree shake animation when sprite is clicked
+	var tween = create_tween();
+	## calculating angles to rotate tree during animation
+	var right_rotation = randi_range(5, 15);
+	var left_rotation = randi_range(-5, -15);
+	var initial_direction = randi_range(0, 1); ## rotates left first if 0, right if 1
+	
+	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 1 else left_rotation, randf_range(0.04, 0.06));
+	tween.tween_property($TreeClicker, "rotation_degrees", right_rotation if initial_direction == 0 else left_rotation, randf_range(0.12, 0.2));
+	tween.tween_property($TreeClicker, "rotation_degrees", 0, 0.2);
+	
 	## adding progress to tree
 	current_tree_growth += growth_per_click;
 	
