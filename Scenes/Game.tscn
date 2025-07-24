@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=16 format=3 uid="uid://blsq4lu1so4ur"]
 
 [ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/game.gd" id="1_v158k"]
 [ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_h4fw4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmnyuqddk4xrk" path="res://Assets/ParalaxBackground/forest_front.png" id="7_1phco"]
 [ext_resource type="Texture2D" uid="uid://be18710yubuo5" path="res://Assets/Trees/Oak1.png" id="8_nb51f"]
 [ext_resource type="PackedScene" uid="uid://cdy2d27p82jvb" path="res://Scenes/upgrade.tscn" id="9_h4fw4"]
+[ext_resource type="AudioStream" uid="uid://bdq78hlao3kij" path="res://Assets/Audio/purchase.mp3" id="10_ldgsr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4fw4"]
 bg_color = Color(1, 1, 1, 0.27451)
@@ -265,3 +266,7 @@ upgrade_value = 1.0
 layout_mode = 2
 upgrade_name = "Expensive Thing"
 upgrade_cost = 10
+
+[node name="UpgradePurchaseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ldgsr")
+volume_db = -5.0
