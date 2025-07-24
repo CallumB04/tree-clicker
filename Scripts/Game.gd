@@ -2,7 +2,7 @@ extends Control
 
 var trees: int = 0; ## game score
 var current_tree_growth: float = 0; ## value 0-100. at 100 trees increments
-var growth_per_click: float = 50; ## tree progress per click
+var growth_per_click: float = 1; ## tree progress per click
 var growth_per_second: float = 0; ## automatic tree progress per second
 
 const TreeClickLabel = preload("res://Scenes/tree_click_label.tscn");
@@ -44,7 +44,7 @@ func _on_tree_clicked():
 	var growth_label := TreeClickLabel.instantiate();
 	growth_label.text = "+%.1f" % [growth_per_click] + "%";
 	## randomising where to display label
-	var growth_label_x_pos := randi_range(size.x/2 - 72, size.x/2 + 60);
+	var growth_label_x_pos := randi_range(size.x/2 - 100, size.x/2 + 60);
 	var growth_label_y_pos := randi_range(size.y - ($TreeClicker.size.y * 4.5) - 96, size.y - ($TreeClicker.size.y * 2.5) - 12);
 	growth_label.position = Vector2i(growth_label_x_pos, growth_label_y_pos);
 	add_child(growth_label);
