@@ -56,6 +56,9 @@ func _on_tree_clicked():
 	## adding progress to tree
 	current_tree_growth += growth_per_click;
 	
+	## playing sound effect
+	$TreeClickSound.play();
+	
 	update_tree_growth();
 	update_values_in_UI();
 	
