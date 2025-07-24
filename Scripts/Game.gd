@@ -56,7 +56,8 @@ func _on_tree_clicked():
 	## adding progress to tree
 	current_tree_growth += growth_per_click;
 	
-	## playing sound effect
+	## playing sound effect with slightly altered pitch
+	$TreeClickSound.pitch_scale = randf_range(0.8, 1.2);
 	$TreeClickSound.play();
 	
 	update_tree_growth();
