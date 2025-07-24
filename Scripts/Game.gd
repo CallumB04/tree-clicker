@@ -2,10 +2,14 @@ extends Control
 
 var trees: int = 0; ## game score
 var current_tree_growth: float = 0; ## value 0-100. at 100 trees increments
-var growth_per_click: float = 1; ## tree progress per click
+var growth_per_click: float = 20; ## tree progress per click
 var growth_per_second: float = 0; ## automatic tree progress per second
 
 const TreeClickLabel = preload("res://Scenes/tree_click_label.tscn");
+
+const TreePlantSound1 = preload("res://Assets/Audio/planted-1.mp3");
+const TreePlantSound2 = preload("res://Assets/Audio/planted-2.mp3");
+const TreePlantSound3 = preload("res://Assets/Audio/planted-3.mp3");
 
 func _ready() -> void:
 	$TreeClicker.connect("pressed", _on_tree_clicked);
@@ -72,11 +76,15 @@ func _on_gpstimer_timeout():
 ## checking if tree growth at checkpoint/complete
 func update_tree_growth():
 	if current_tree_growth >= 100:
-		current_tree_growth -= 100;
+		current_tree_growth -= 100; ## reset tree growth for new tree
 		trees += 1;
 		$InfoPanel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TreeCount.text = str(trees); ## updating trees score text
+		## updating sprite depending on tree progress
 		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak1.png");
 		$TreeClicker.pivot_offset = Vector2(8, 13);
+		## playing random of selected audio sounds
+		$TreePlantedSound.stream = [TreePlantSound1, TreePlantSound2, TreePlantSound3][randi_range(0,2)];
+		$TreePlantedSound.play();
 	elif current_tree_growth >= 80:
 		$TreeClicker.texture_normal = preload("res://Assets/Trees/Oak5.png");
 		$TreeClicker.pivot_offset = Vector2(24, 87);

@@ -274,3 +274,5 @@ volume_db = -5.0
 
 [node name="TreeClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_o5yvi")
+
+[node name="TreePlantedSound" type="AudioStreamPlayer" parent="."]
