@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blsq4lu1so4ur"]
+[gd_scene load_steps=18 format=3 uid="uid://blsq4lu1so4ur"]
 
 [ext_resource type="Script" uid="uid://bb0j4rmdxjo1a" path="res://Scripts/game.gd" id="1_v158k"]
 [ext_resource type="Script" uid="uid://ndlvwsv4niwi" path="res://Scripts/parallax_background.gd" id="2_h4fw4"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cdy2d27p82jvb" path="res://Scenes/upgrade.tscn" id="9_h4fw4"]
 [ext_resource type="AudioStream" uid="uid://bdq78hlao3kij" path="res://Assets/Audio/purchase.mp3" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://dr63y7t8d787" path="res://Assets/Audio/planting.mp3" id="11_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://b3wt5rrtwy8m3" path="res://Assets/Audio/music.wav" id="12_rku1e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4fw4"]
 bg_color = Color(1, 1, 1, 0.27451)
@@ -276,3 +277,7 @@ volume_db = -5.0
 stream = ExtResource("11_o5yvi")
 
 [node name="TreePlantedSound" type="AudioStreamPlayer" parent="."]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_rku1e")
+autoplay = true
