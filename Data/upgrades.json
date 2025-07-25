@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Upgrade 1",
+		"cost": 1,
+		"type": "click",
+		"value": 0.2
+	},
+	{
+		"name": "Upgrade 2",
+		"cost": 3,
+		"type": "gps",
+		"value": 0.5	
+	},
+	{
+		"name": "Upgrade 3",
+		"cost": 5,
+		"type": "click",
+		"value": 0.5
+	},
+	{
+		"name": "Upgrade 4",
+		"cost": 7,
+		"type": "gps",
+		"value": 1	
+	},
+	{
+		"name": "Upgrade 5",
+		"cost": 9,
+		"type": "click",
+		"value": 1
+	}
+]
