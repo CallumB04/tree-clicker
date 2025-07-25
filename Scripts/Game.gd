@@ -2,7 +2,7 @@ extends Control
 
 var trees: int = 0; ## game score
 var current_tree_growth: float = 0; ## value 0-100. at 100 trees increments
-var growth_per_click: float = 20; ## tree progress per click
+var growth_per_click: float = 1; ## tree progress per click
 var growth_per_second: float = 0; ## automatic tree progress per second
 
 const TreeClickLabel = preload("res://Scenes/tree_click_label.tscn");
@@ -117,6 +117,8 @@ func _on_upgrade_requested(upgrade: Upgrade):
 		
 		$UpgradePurchaseSound.play(); ## play audio if purchase is made
 		$UpgradesVBox.show_new_upgrade(); ## adding new upgrade to replace purchased one
+		## connecting buy button to game script
+		$UpgradesVBox.get_child($UpgradesVBox.get_child_count() - 1).connect("upgrade_requested", _on_upgrade_requested);
 		upgrade.queue_free(); ## delete upgrade node from scene
 			
 	update_values_in_UI();
