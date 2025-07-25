@@ -1,32 +1,62 @@
 [
 	{
-		"name": "Upgrade 1",
+		"name": "First pair of Gloves",
 		"cost": 1,
 		"type": "click",
 		"value": 0.2
 	},
 	{
-		"name": "Upgrade 2",
-		"cost": 3,
+		"name": "Basic Fertilizer",
+		"cost": 1,
 		"type": "gps",
 		"value": 0.5	
 	},
 	{
-		"name": "Upgrade 3",
-		"cost": 5,
+		"name": "Small Trowel",
+		"cost": 3,
 		"type": "click",
 		"value": 0.5
 	},
 	{
-		"name": "Upgrade 4",
-		"cost": 7,
+		"name": "Better Soil",
+		"cost": 4,
 		"type": "gps",
 		"value": 1	
 	},
 	{
-		"name": "Upgrade 5",
-		"cost": 9,
+		"name": "Slightly bigger Trowel",
+		"cost": 4,
+		"type": "click",
+		"value": 0.7
+	},
+	{
+		"name": "Iron Shovel",
+		"cost": 6,
 		"type": "click",
 		"value": 1
-	}
+	},
+	{
+		"name": "Upgraded Fertilizer",
+		"cost": 7,
+		"type": "gps",
+		"value": 1.5
+	},
+	{
+		"name": "Speed-Grow (does it work?)",
+		"cost": 9,
+		"type": "gps",
+		"value": 2
+	},
+	{
+		"name": "Steel Shovel",
+		"cost": 10,
+		"type": "click",
+		"value": 1
+	},
+	{
+		"name": "Second pair of Hands",
+		"cost": 12,
+		"type": "click",
+		"value": 1
+	},
 ]

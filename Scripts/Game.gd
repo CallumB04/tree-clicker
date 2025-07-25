@@ -116,6 +116,7 @@ func _on_upgrade_requested(upgrade: Upgrade):
 			growth_per_second += upgrade.upgrade_value;
 		
 		$UpgradePurchaseSound.play(); ## play audio if purchase is made
+		$UpgradesVBox.show_new_upgrade(); ## adding new upgrade to replace purchased one
 		upgrade.queue_free(); ## delete upgrade node from scene
 			
 	update_values_in_UI();
