@@ -11,4 +11,4 @@ and will continue building small games to get more comfortable with Godot.
 
 ### Setup
 - Clone the repository
-- Open the game in Godot, and run the game from the editor
+- Open the project in Godot, and run the game from the editor
