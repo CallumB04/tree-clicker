@@ -12,13 +12,14 @@ func _ready():
 		show_new_upgrade();
 		
 func show_new_upgrade():
-	var data = upgrades_data.pop_front(); ## remove upgrade from data
-	var upgrade = UpgradeScene.instantiate()
-	upgrade.upgrade_name = data["name"];
-	upgrade.upgrade_cost = data["cost"];
-	upgrade.type = upgrade.upgrade_type.CLICK_UPGRADE if data["type"] == "click" else upgrade.upgrade_type.GPS_UPGRADE;
-	upgrade.upgrade_value = data["value"];
-	add_child(upgrade);
+	if len(upgrades_data) > 0:
+		var data = upgrades_data.pop_front(); ## remove upgrade from data
+		var upgrade = UpgradeScene.instantiate()
+		upgrade.upgrade_name = data["name"];
+		upgrade.upgrade_cost = data["cost"];
+		upgrade.type = upgrade.upgrade_type.CLICK_UPGRADE if data["type"] == "click" else upgrade.upgrade_type.GPS_UPGRADE;
+		upgrade.upgrade_value = data["value"];
+		add_child(upgrade);
 	
 
 func read_upgrades_json():
