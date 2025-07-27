@@ -13,6 +13,7 @@ const TreePlantSound3 = preload("res://Assets/Audio/planted-3.mp3");
 
 func _ready() -> void:
 	$TreeClicker.connect("pressed", _on_tree_clicked);
+	$TreeClickerBackPanel.connect("pressed", _on_tree_clicked);
 	$GPSTimer.connect("timeout", _on_gpstimer_timeout);
 	
 	## connect all existing upgrades to parent function
