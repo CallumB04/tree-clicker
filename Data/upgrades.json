@@ -12,6 +12,12 @@
 		"value": 0.5	
 	},
 	{
+		"name": "Grandma's Broken Tools",
+		"cost": 2,
+		"type": "click",
+		"value": 0.4	
+	},
+	{
 		"name": "Small Trowel",
 		"cost": 3,
 		"type": "click",
@@ -59,4 +65,46 @@
 		"type": "click",
 		"value": 1
 	},
+	{
+		"name": "More Rainfall",
+		"cost": 12,
+		"type": "gps",
+		"value": 1.2
+	},
+	{
+		"name": "Even better soil",
+		"cost": 14,
+		"type": "gps",
+		"value": 1.5
+	},
+	{
+		"name": "Tree Planting Book I",
+		"cost": 15,
+		"type": "click",
+		"value": 1.2
+	},
+	{
+		"name": "Even-speedier Grow",
+		"cost": 17,
+		"type": "gps",
+		"value": 1.8
+	},
+	{
+		"name": "Third pair of Hands?",
+		"cost": 20,
+		"type": "click",
+		"value": 1.2
+	},
+	{
+		"name": "Purified Rainwater",
+		"cost": 25,
+		"type": "gps",
+		"value": 1.5
+	},
+	{
+		"name": "Tree Planting Book II",
+		"cost": 30,
+		"type": "click",
+		"value": 2
+	}
 ]
